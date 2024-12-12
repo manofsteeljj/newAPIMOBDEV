@@ -1,4 +1,19 @@
 <?php
+
+header("Access-Control-Allow-Origin: http://localhost:3000"); // Allow only React's origin
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Expose-Headers: Location"); // Expose Location for redirects
+header("Access-Control-Allow-Credentials: true"); // If using cookies for authentication
+
+// Handle preflight requests (OPTIONS)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
+$error = isset($_GET['error']) ? $_GET['error'] : null;
+
 session_start(); 
 require 'db.php'; 
 

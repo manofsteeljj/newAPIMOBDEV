@@ -26,6 +26,8 @@ try {
 } catch (PDOException $e) {
     die("Error fetching room data: " . $e->getMessage());
 }
+
+
 ?>
 
 <!DOCTYPE html>
